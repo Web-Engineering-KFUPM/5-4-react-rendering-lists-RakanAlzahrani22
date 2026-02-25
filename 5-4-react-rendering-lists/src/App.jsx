@@ -137,7 +137,6 @@ export default function App() {
         <p className="subtitle">Lists • Keys • Conditional Rendering</p>
       </header>
       <section className="grid">
-        <p style={{ color: "white" }}>Courses count: {courses.length}</p>
         {courses.map((course, idx) => (
     <CourseCard
       key={course.id}

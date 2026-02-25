@@ -7,19 +7,25 @@ export default function TaskItem({ task, onToggle, onDelete }) {
       <label className="taskMain">
         {/* TODO (TASK 4): Checkbox calls onToggle(task.id) on change
             Also make it reflect task.isDone using checked={task.isDone} */}
-        <input type="checkbox" />
+        <input
+        type="checkbox"
+        checked={task.isDone}                 // TASK 4: reflect state
+        onChange={() => onToggle(task.id)}    // TASK 4: toggle on change
+/>
 
-        {/* TODO (TASK 3): Show <DueBadge /> ONLY when task is NOT done (&&)
-            Example:
-              {!task.isDone && <DueBadge dueDate={task.dueDate} />} */}
+        {!task.isDone && <DueBadge dueDate={task.dueDate} />}
 
         {<span className="title">{task.title}</span>}
       </label>
 
       {/* TODO (TASK 4): Delete button calls onDelete(task.id) on click */}
-      <button className="ghost" aria-label="Delete task">
-        ✕
-      </button>
+      <button
+      className="ghost"
+      aria-label="Delete task"
+      onClick={() => onDelete(task.id)}     // TASK 4: delete on click
+>
+      ✕
+    </button>
     </li>
   );
 }
